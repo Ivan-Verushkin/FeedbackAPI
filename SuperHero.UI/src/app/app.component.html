@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row"> 
+    <div class="col-8 offset-2">
+      <div class="bg-body-secondary text-center py-5 rounded-2">
+        <h1 class="display-6 fw-bold">
+            Leave Your Feedback
+        </h1>
+      </div>
+      <div class="row mt-5">
+      <div class="col-6">
+        <div class="d-grid">
+          <button class="btn btn-lg btn-success" (click)="initNewFeedback()">Create a new feedback</button>
+      </div>
+      <table>
+        <thead>
+          <th>Feedbacks</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let feedback of feedbacks">
+            <td>{{ feedback.feedbackMessage }}</td>
+            <td><button class="btn btn-lg btn-warning" (click)="editFeedback(feedback)">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <app-edit-feedback
+        [feedback]="feedbackToEdit"
+        (feedbacksUpdated)="updatedFeedbacks($event)"
+      ></app-edit-feedback>
+    </div>
+    <div class="col-6">
+      <table>
+        <thead>
+          <th>Responses</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let response of responses; index as i">
+            <td>{{i + 1}}</td>
+            <td>{{ response.responseMessage }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div *ngIf="feedback">
+    <h2>Feedback Message</h2>
+    <div>
+        Leave your feedback:
+        <input class="form-control form-control-lg" [(ngModel)]="feedback.feedbackMessage" placeholder="Your feedback" />
+      </div>
+    <button class="btn btn-lg btn-warning" (click)="updateFeedback(feedback)" *ngIf="feedback.id">Save</button>
+    <button class="btn btn-lg btn-danger" (click)="deleteFeedback(feedback)" *ngIf="feedback.id">Delete</button>
+    <button class="btn btn-lg btn-success" (click)="createFeedback(feedback)" *ngIf="!feedback.id">Create</button>
+  </div>
+  
